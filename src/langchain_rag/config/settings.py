@@ -14,8 +14,7 @@ class Settings:
     EMBEDDING_MODEL: str = os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
 
     # Parámetros LLM
-    DEFAULT_TEMPERATURE: float = 0.7
-    LOW_TEMPERATURE: float = 0.1
+    DEFAULT_TEMPERATURE: float = 0.5
     MAX_RETRIES: int = 3
 
     # RAG
