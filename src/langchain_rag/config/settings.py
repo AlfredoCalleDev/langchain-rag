@@ -1,3 +1,4 @@
+from langsmith._openapi_client.types import run_select_field
 import os
 from dotenv import load_dotenv
 
@@ -15,16 +16,23 @@ class Settings:
 
         # Modelos
         self.LLM_MODEL: str = os.getenv("LLM_MODEL", "gpt-4o-mini")
-        self.EMBEDDING_MODEL: str = os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
+        self.EMBEDDING_MODEL: str = os.getenv(
+            "EMBEDDING_MODEL", "text-embedding-3-small"
+        )
 
         # Parámetros LLM
         self.DEFAULT_TEMPERATURE: float = 0.5
         self.MAX_RETRIES: int = 3
 
+        # Rutas de persistencia
+        self.CHROMA_PATH: str = os.getenv("CHROMA_PATH", "./data/langchain_chroma")
+        self.DOCUMENTS_PATH: str = os.getenv("DOCUMENTS_PATH", "./data/documents")
+
         # RAG
         self.CHUNK_SIZE: int = int(os.getenv("CHUNK_SIZE", 500))
         self.CHUNK_OVERLAP: int = int(os.getenv("CHUNK_OVERLAP", 50))
         self.TOP_K_RESULTS: int = int(os.getenv("TOP_K_RESULTS", 3))
+        self.COLLECTION_NAME: str = os.getenv("COLLECTION_NAME", "langchain_rag")
 
     def validate(self) -> None:
         """Valida las variables de entorno requeridas"""

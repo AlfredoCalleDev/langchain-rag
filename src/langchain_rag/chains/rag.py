@@ -1,22 +1,21 @@
-from langchain_chroma import Chroma
 from langchain_core.runnables import Runnable, RunnablePassthrough
-from langchain_core.vectorstores import VectorStoreRetriever
+from langchain_core.vectorstores import VectorStore, VectorStoreRetriever
+from langchain_core.language_models import BaseChatModel
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-
 from langchain_rag.config.settings import settings
-from langchain_rag.ai.llm import get_llm
 from langchain_rag.utils.formatters import format_docs
 
 
 def build_rag_chain(
-    vector_store: Chroma, prompt: ChatPromptTemplate
+    vector_store: VectorStore, prompt: ChatPromptTemplate, llm: BaseChatModel
 ) -> tuple[Runnable, VectorStoreRetriever]:
     """Construye la cadena RAG
 
     Args:
-        vector_store (Chroma): Almacén de vectores
+        vector_store (VectorStore): Almacén de vectores
         prompt (ChatPromptTemplate): Prompt del asistente
+        llm (BaseChatModel): Modelo de lenguaje
 
     Returns:
         tuple[Runnable, VectorStoreRetriever]: Cadena RAG y retriever
@@ -29,7 +28,7 @@ def build_rag_chain(
     rag_chain = (
         {"context": retriever | format_docs, "question": RunnablePassthrough()}
         | prompt
-        | get_llm(temperature=settings.LOW_TEMPERATURE)
+        | llm
         | StrOutputParser()
     )
 
