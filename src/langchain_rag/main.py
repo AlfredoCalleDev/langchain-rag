@@ -25,24 +25,25 @@ def start_app():
         llm=get_llm(temperature=settings.DEFAULT_TEMPERATURE),
     )
 
-    user_question = input("Pregunta: ").strip()
+    while True:
+        user_question = input("Pregunta: ").strip()
 
-    retrieved_chunks = retriever.invoke(user_question)
+        retrieved_chunks = retriever.invoke(user_question)
 
-    if not retrieved_chunks:
-        print(f"\n❌ No se encontraron documentos relacionados con tu pregunta")
-        return
+        if not retrieved_chunks:
+            print(f"\n❌ No se encontraron documentos relacionados con tu pregunta")
+            continue
 
-    print(f"\n📚 Documentos encontrados:")
+        print(f"\n📚 Documentos encontrados:")
 
-    for chunk in retrieved_chunks:
-        print(f"- {chunk.metadata['source']}")
+        for chunk in retrieved_chunks:
+            print(f"- {chunk.metadata['source']}")
 
-    print("\n IA: ", end="", flush=True)
-    answer = rag_chain.invoke(user_question)
-    print(answer)
+        print("\n IA: ", end="", flush=True)
+        answer = rag_chain.invoke(user_question)
+        print(answer)
 
-    print("\n")
+        print("\n")
 
 
 if __name__ == "__main__":
