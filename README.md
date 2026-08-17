@@ -1,4 +1,4 @@
-# 🧠 LangChain RAG CLI
+# 🧠 LangChain RAG
 
 ![Python](https://img.shields.io/badge/Python-3.12%2B-blue.svg)
 ![LangChain](https://img.shields.io/badge/LangChain-1.3%2B-green.svg)
@@ -100,7 +100,7 @@ Para salir, simplemente presiona `Ctrl + C`.
 
 ---
 
-## 🏗️ Arquitectura del Proyecto
+## 🏗️ Estructura de carpetas del proyecto
 
 ```text
 langchain-rag/
