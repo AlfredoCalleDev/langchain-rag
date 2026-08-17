@@ -45,7 +45,7 @@ def load_file(file_path: Path) -> list[Document]:
             document.metadata["file_name"] = file_path.name
             document.metadata["file_type"] = "txt"
 
-    print("\n✅ Cargado exitosamente")
+    print("\n✅ Cargado exitoso")
 
     return documents
 

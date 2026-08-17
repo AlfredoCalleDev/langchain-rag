@@ -1,8 +1,0 @@
-Mi nombre es Alfredo Calle, soy ingeniero en ciencias de la computación
-y actualmente me encuentro culminando un máster en inteligencia artificial.
-Estudié en La Escuela Superior Politécnica del Litoral (ESPOL) de Ecuador para la ingenería
-y para el máster en La Universidad Internacional de la Rioja de España (UNIR).
-Me dedico al desarrollo de soluciones técnologicas que integran ingeniería de software
-e inteligencia artificial para solucionar problemas reales.
-Me encanta ver anime y pasar tiempo con mi familia.
-Por último tengo 26 años, mi perro se llama Dante y mi anime favorito actualmente es Mushoku Tensei.

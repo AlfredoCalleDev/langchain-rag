@@ -6,8 +6,6 @@ from langchain_rag.ai.llm import get_llm
 
 
 def start_app():
-    print("Hello from langchain-rag!")
-
     vector_store, num_chunks = index_documents(
         documents_path=settings.DOCUMENTS_PATH,
         chroma_path=settings.CHROMA_PATH,
@@ -32,10 +30,10 @@ def start_app():
     retrieved_chunks = retriever.invoke(user_question)
 
     if not retrieved_chunks:
-        print(f"❌ No se encontraron documentos relacionados con tu pregunta")
+        print(f"\n❌ No se encontraron documentos relacionados con tu pregunta")
         return
 
-    print(f"📚 Documentos encontrados:")
+    print(f"\n📚 Documentos encontrados:")
 
     for chunk in retrieved_chunks:
         print(f"- {chunk.metadata['source']}")

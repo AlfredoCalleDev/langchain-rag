@@ -13,7 +13,7 @@ def format_docs(docs: list[Document]) -> str:
 
     return "\n\n----\n\n".join(
         [
-            f"[Fuente: {doc.metadata.get('source', 'desconocida')},"
+            f"[Fuente: {doc.metadata.get('source', 'desconocida')}, "
             f"Página: {doc.metadata.get('page', "N/A")}]\n {doc.page_content}"
             for doc in docs
         ]
